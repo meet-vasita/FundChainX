@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-ignition": "^0.15.0",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "chai": "^4.2.0",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.4.0",
+    "hardhat": "^2.14.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.3.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.758.0",
+    "@aws-sdk/credential-providers": "^3.758.0",
+    "@openzeppelin/contracts": "^5.2.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.12.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.10.0",
+    "uuid": "^11.1.0"
+  }
+}
