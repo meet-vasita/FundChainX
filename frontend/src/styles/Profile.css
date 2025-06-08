@@ -1,0 +1,282 @@
+/* src/styles/Profile.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #4a6cff;
+  --primary-light: #7a8eff;
+  --primary-dark: #3451cc;
+  --secondary: #2ad3bc;
+  --secondary-light: #5fefdb;
+  --secondary-dark: #1fab98;
+  --accent: #f96d6d;
+  --text-dark: #33344e;
+  --text-light: #f7f9fc;
+  --background: #ffffff;
+  --gray-light: #f5f7fa;
+  --gray-medium: #e2e8f0;
+  --gray-dark: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* Profile Page Container */
+.profile-page {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 5%;
+}
+
+/* Header */
+.profile-page h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 32px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Profile Container */
+.profile-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.profile-container:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Profile Info Section */
+.profile-info h2,
+.profile-actions h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.profile-field {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-field label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-dark);
+  min-width: 150px;
+}
+
+.profile-field span {
+  font-size: 16px;
+  color: var(--text-dark);
+  word-break: break-word;
+}
+
+.profile-field .input-group {
+  flex: 1;
+  margin-bottom: 0; /* Override CommonComponents margin */
+}
+
+.profile-field .input-group input,
+.profile-field .input-group textarea {
+  width: 100%;
+}
+
+/* Copy Button */
+.copy-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+}
+
+/* Profile Actions Section */
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.profile-actions .button {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.profile-actions .button:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, var(--accent), #e55c5c);
+}
+
+/* Modal Overrides */
+.profile-page .modal-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.profile-page .modal-content .input-group {
+  margin-bottom: 16px;
+}
+
+.profile-page .modal-content .button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* Alerts and Spinner */
+.profile-page .alert {
+  margin-bottom: 24px;
+}
+
+.profile-page .spinner {
+  margin: 24px auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profile-page {
+    padding: 0 3%;
+  }
+
+  .profile-container {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .profile-page h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    margin: 20px auto;
+    padding: 0 2%;
+  }
+
+  .profile-page h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .profile-container {
+    padding: 20px;
+  }
+
+  .profile-info h2,
+  .profile-actions h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .profile-field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .profile-field label {
+    min-width: unset;
+    font-size: 14px;
+  }
+
+  .profile-field span {
+    font-size: 14px;
+  }
+
+  .profile-actions .button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .copy-btn {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .profile-page .modal-content h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page {
+    margin: 10px auto;
+    padding: 0 1%;
+  }
+
+  .profile-page h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .profile-container {
+    padding: 16px;
+  }
+
+  .profile-info h2,
+  .profile-actions h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .profile-field label,
+  .profile-field span {
+    font-size: 13px;
+  }
+
+  .profile-actions .button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .copy-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .profile-page .alert,
+  .profile-page .spinner {
+    margin-bottom: 16px;
+  }
+
+  .profile-page .modal-content h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .profile-page .modal-content .input-group {
+    margin-bottom: 12px;
+  }
+
+  .profile-page .modal-content .button {
+    margin-top: 12px;
+  }
+}

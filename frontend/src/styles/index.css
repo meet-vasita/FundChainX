@@ -1,0 +1,70 @@
+/* src/styles/index.css */
+
+/* Global CSS Variables */
+:root {
+  --primary: #4a6cff;
+  --primary-light: #7a8eff;
+  --primary-dark: #3451cc;
+  --secondary: #2ad3bc;
+  --secondary-light: #5fefdb;
+  --secondary-dark: #1fab98;
+  --accent: #f96d6d;
+  --text-dark: #33344e;
+  --text-light: #f7f9fc;
+  --background: #ffffff;
+  --gray-light: #f5f7fa;
+  --gray-medium: #e2e8f0;
+  --gray-dark: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* Base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh; /* Ensure the root takes full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app container takes full height */
+}
+
+.main-content {
+  flex: 1 0 auto; /* Allow main content to grow and push footer down */
+  padding-top: 0; /* Remove any top padding that might affect navbar */
+}
+
+/* Reset button styles */
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Reset link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}

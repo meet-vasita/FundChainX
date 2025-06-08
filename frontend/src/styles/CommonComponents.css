@@ -1,0 +1,357 @@
+/* src/styles/CommonComponents.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #4a6cff;
+  --primary-light: #7a8eff;
+  --primary-dark: #3451cc;
+  --secondary: #2ad3bc;
+  --secondary-light: #5fefdb;
+  --secondary-dark: #1fab98;
+  --accent: #f96d6d;
+  --text-dark: #33344e;
+  --text-light: #f7f9fc;
+  --background: #ffffff;
+  --gray-light: #f5f7fa;
+  --gray-medium: #e2e8f0;
+  --gray-dark: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* Alert Styles */
+.alert {
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.alert-success {
+  background-color: var(--secondary-light);
+  color: var(--secondary-dark);
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  color: var(--accent);
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.alert-info {
+  background-color: var(--gray-light);
+  color: var(--text-dark);
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+  padding: 0 8px;
+  transition: var(--transition);
+}
+
+.alert-close:hover {
+  opacity: 0.7;
+}
+
+/* Button Styles (Override LandingPage.css if needed) */
+.button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-light);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transition);
+}
+
+.button:hover::before {
+  left: 100%;
+  transition: 0.5s;
+}
+
+.button:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Card Styles */
+.card {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Input Styles */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--gray-medium);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  transition: var(--transition);
+  background: var(--background);
+  color: var(--text-dark);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(74, 108, 255, 0.1);
+}
+
+.input-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.input-error {
+  border-color: var(--accent);
+}
+
+.error-message {
+  color: var(--accent);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Loader Styles */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--gray-light);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--gray-dark);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--primary);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.5s ease;
+}
+
+/* Spinner Styles */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--gray-light);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .alert {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .input-group input,
+  .input-group textarea {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .loader {
+    width: 32px;
+    height: 32px;
+  }
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .alert {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .alert-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  .button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .input-group label {
+    font-size: 13px;
+  }
+
+  .input-group input,
+  .input-group textarea {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+}

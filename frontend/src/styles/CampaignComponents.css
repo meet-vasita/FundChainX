@@ -1,0 +1,399 @@
+/* src/styles/CampaignComponents.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #4a6cff;
+  --primary-light: #7a8eff;
+  --primary-dark: #3451cc;
+  --secondary: #2ad3bc;
+  --secondary-light: #5fefdb;
+  --secondary-dark: #1fab98;
+  --accent: #f96d6d;
+  --text-dark: #33344e;
+  --text-light: #f7f9fc;
+  --background: #ffffff;
+  --gray-light: #f5f7fa;
+  --gray-medium: #e2e8f0;
+  --gray-dark: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* CampaignCard Styles */
+.campaign-card {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  overflow: hidden;
+  position: relative;
+  max-width: 400px; /* Limit the maximum width of the card */
+  width: 100%; /* Ensure it takes full width up to max-width */
+  margin: 0 auto; /* Center the card if it’s narrower than its container */
+}
+
+.campaign-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.campaign-banner {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.campaign-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.campaign-card p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.campaign-card .button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* CampaignProgress Styles */
+.campaign-progress {
+  margin: 16px 0;
+}
+
+.campaign-progress p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-top: 8px;
+}
+
+/* CampaignStatus Styles */
+.campaign-status {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--background);
+}
+
+.status-active {
+  border-left: 4px solid var(--secondary);
+}
+
+.status-successful {
+  border-left: 4px solid var(--primary);
+}
+
+.status-expired,
+.status-aborted {
+  border-left: 4px solid var(--accent);
+}
+
+.status-text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.status-text span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.campaign-status p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin: 8px 0;
+}
+
+/* ContributionForm Styles */
+.contribution-form {
+  padding: 24px;
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.contribution-form h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.contribution-form .input-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.contribution-form .input-group input {
+  flex: 1;
+}
+
+.contribution-form .button {
+  padding: 12px 20px;
+}
+
+.contribution-form .min-contribution {
+  font-size: 12px;
+  color: var(--gray-dark);
+  margin-top: 8px;
+}
+
+/* ContributorsList Styles */
+.contributors-list {
+  padding: 24px;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.contributors-list h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.contributors-list p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin: 8px 0;
+}
+
+/* DonationHistory Styles */
+.donation-history {
+  padding: 24px;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.donation-history h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.donation-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.donation-item {
+  padding: 12px;
+  border-bottom: 1px solid var(--gray-medium);
+}
+
+.donation-item:last-child {
+  border-bottom: none;
+}
+
+.donation-item p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin: 4px 0;
+}
+
+.donation-item p strong {
+  color: var(--primary-dark);
+}
+
+/* CampaignTimeline Styles */
+.campaign-timeline {
+  padding: 24px;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.campaign-timeline h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gray-medium);
+}
+
+.start-marker {
+  background: var(--secondary);
+}
+
+.end-marker {
+  background: var(--primary);
+}
+
+.end-marker.passed {
+  background: var(--accent);
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.timeline-progress {
+  position: relative;
+  height: 4px;
+  background: var(--gray-light);
+  margin: 16px 0;
+}
+
+.timeline-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.timeline-bar.in-progress {
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  width: 100%;
+}
+
+.timeline-bar.completed {
+  background: var(--accent);
+  width: 100%;
+}
+
+.countdown {
+  font-weight: 500;
+  color: var(--secondary-dark);
+}
+
+/* RefundForm & WithdrawForm Styles */
+.refund-form,
+.withdraw-form {
+  padding: 24px;
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.refund-form h3,
+.withdraw-form h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.refund-form .button,
+.withdraw-form .button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.refund-form .alert,
+.withdraw-form .alert {
+  margin-top: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .campaign-card {
+    padding: 20px;
+    max-width: 350px; /* Slightly smaller on tablets */
+  }
+
+  .campaign-banner {
+    height: 120px;
+  }
+
+  .campaign-card h3,
+  .campaign-status h3,
+  .contribution-form h3,
+  .contributors-list h3,
+  .donation-history h3,
+  .campaign-timeline h3,
+  .refund-form h3,
+  .withdraw-form h3 {
+    font-size: 18px;
+  }
+
+  .contribution-form .input-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contribution-form .button {
+    width: 100%;
+  }
+
+  .donation-item p {
+    font-size: 13px;
+  }
+
+  .timeline-content p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .campaign-card {
+    padding: 16px;
+    max-width: 300px; /* Even smaller on mobile */
+  }
+
+  .campaign-banner {
+    height: 100px;
+  }
+
+  .campaign-card h3,
+  .campaign-status h3,
+  .contribution-form h3,
+  .contributors-list h3,
+  .donation-history h3,
+  .campaign-timeline h3,
+  .refund-form h3,
+  .withdraw-form h3 {
+    font-size: 16px;
+  }
+
+  .campaign-card p,
+  .campaign-progress p,
+  .campaign-status p,
+  .contributors-list p,
+  .donation-item p,
+  .timeline-content p {
+    font-size: 12px;
+  }
+
+  .contribution-form,
+  .refund-form,
+  .withdraw-form {
+    padding: 16px;
+  }
+}
+
