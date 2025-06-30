@@ -30,7 +30,7 @@ const useCampaign = (campaignAddress) => {
     const fetchCampaignData = useCallback(async (contractInstance) => {
         try {
             const details = await contractInstance.getCampaignDetails();
-            const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+            const apiUrl = process.env.REACT_APP_API_URL || 'https://fundchainx.onrender.com';
             const mongoResponse = await fetch(`${apiUrl}/api/campaigns/address/${campaignAddress}`);
             if (!mongoResponse.ok) {
                 const errorText = await mongoResponse.text();
