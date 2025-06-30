@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ethers } from 'ethers';
 import { useNavigate } from 'react-router-dom';
 
-const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://fundchainx.onrender.com';
 axios.defaults.baseURL = apiBaseUrl;
 
 export const AuthContext = createContext();
