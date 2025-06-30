@@ -9,15 +9,29 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// CORS configuration (explicitly allow frontend origin)
+// ✅ Hardcoded CORS allowed origins
+const allowedOrigins = [
+  'http://localhost:3000',               // Dev environment
+  'https://fundchainx-six.vercel.app/',       // Deployed frontend
+];
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Restrict to frontend URL
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like curl, mobile apps)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error(`CORS policy: Origin ${origin} not allowed`), false);
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
 
-// Middleware
+// Middleware for body parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,12 +44,12 @@ app.use('/api/campaigns', campaignRoutes);
 app.use('/api/images', imageRoutes);
 app.use('/api/auth', authRoutes);
 
-// Health check route for debugging
+// Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'Server is running', port: PORT });
 });
 
-// Error handling middleware
+// Global error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
@@ -44,15 +58,15 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Connect to MongoDB and start server
+// Start server
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`✅ Server running on port ${PORT}`);
     });
   })
   .catch(err => {
-    console.error('Database connection failed:', err);
+    console.error('❌ Database connection failed:', err);
     process.exit(1);
   });
 
