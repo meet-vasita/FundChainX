@@ -48,7 +48,7 @@ const MyCampaigns = () => {
     setError(null);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://fundchainx.onrender.com';
       const mongoResponse = await fetch(`${apiUrl}/api/campaigns/creator/${address.toLowerCase()}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
