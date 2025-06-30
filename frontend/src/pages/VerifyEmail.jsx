@@ -25,7 +25,7 @@ const VerifyEmail = () => {
 
     try {
       console.log("Sending GET request to verify email with token:", token);
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/verify-email?token=${token}`, {
+      const res = await axios.get(`https://fundchainx.onrender.com/api/auth/verify-email?token=${token}`, {
         timeout: 5000,
       });
       console.log("Response data:", res.data);
@@ -54,7 +54,7 @@ const VerifyEmail = () => {
     try {
       setStatus('verifying');
       setMessage('Resending verification email...');
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/resend-verification`, {}, {
+      await axios.post(`https://fundchainx.onrender.com/api/auth/resend-verification`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setStatus('success');
