@@ -9,42 +9,33 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// ✅ Hardcoded CORS allowed origins
-const allowedOrigins = [
-  'http://localhost:3000',               // Dev environment
-  'https://fundchainx-six.vercel.app/',       // Deployed frontend
-];
-
+// ✅ Simplified hardcoded CORS configuration
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like curl, mobile apps)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error(`CORS policy: Origin ${origin} not allowed`), false);
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: [
+    'http://localhost:3000',              // Local frontend (dev)
+    'https://fundchainx-six.vercel.app'       // Deployed frontend (prod)
+  ],
   credentials: true,
 }));
 
-// Middleware for body parsing
+// ✅ Handle preflight (OPTIONS) requests for all routes
+app.options('*', cors());
+
+// Middleware to parse incoming JSON and form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// Import routes
 import campaignRoutes from './routes/campaignRoutes.js';
 import imageRoutes from './routes/imageRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 
+// Route mounting
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/images', imageRoutes);
 app.use('/api/auth', authRoutes);
 
-// Health check
+// Health check route
 app.get('/health', (req, res) => {
   res.json({ status: 'Server is running', port: PORT });
 });
@@ -58,7 +49,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server
+// Connect to MongoDB and start server
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
