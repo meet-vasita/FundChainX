@@ -39,7 +39,7 @@ export const register = async (req, res) => {
 
     console.log('User saved with token:', verificationToken);
 
-    const verificationUrl = `${process.env.FRONTEND_URL}/verify-email?token=${verificationToken}`;
+    const verificationUrl = `https://fundchainx-six.vercel.app/verify-email?token=${verificationToken}`;
     console.log('Sending verification URL for', email, ':', verificationUrl);
     await sendEmail(email, 'Verify Your Email', verificationUrl, 'verification');
 
@@ -212,7 +212,7 @@ export const forgotPassword = async (req, res) => {
     user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
     await user.save();
 
-    const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
+    const resetUrl = `https://fundchainx-six.vercel.app/reset-password?token=${resetToken}`;
     await sendEmail(email, 'Reset Your Password', resetUrl, 'reset');
 
     res.json({ message: 'Password reset email sent' });
@@ -336,7 +336,7 @@ export const resendVerification = async (req, res) => {
     user.verificationToken = verificationToken;
     await user.save();
 
-    const verificationUrl = `${process.env.FRONTEND_URL}/verify-email?token=${verificationToken}`;
+    const verificationUrl = `https://fundchainx-six.vercel.app/verify-email?token=${verificationToken}`;
     await sendEmail(user.email, 'Verify Your Email', verificationUrl, 'verification');
 
     res.json({ message: 'Verification email resent successfully' });
