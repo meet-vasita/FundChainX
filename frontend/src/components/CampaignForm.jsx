@@ -118,7 +118,7 @@ const handleSubmit = async (e) => {
 
     setLoading({ active: true, message: "Saving campaign..." });
     await axios.post(
-      `${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/campaigns`,
+      `${process.env.REACT_APP_API_URL || 'https://fundchainx.onrender.com'}/api/campaigns`,
       campaignFormData,
       {
         headers: {
