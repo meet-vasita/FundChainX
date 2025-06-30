@@ -37,7 +37,7 @@ const Campaigns = () => {
               const contractProvider = contract.runner.provider || provider || contract.runner;
               const campaignContract = new ethers.Contract(address, CampaignABI.abi, contractProvider);
               const summary = await campaignContract.getCampaignSummary();
-              const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+              const apiUrl = process.env.REACT_APP_API_URL || 'https://fundchainx.onrender.com';
               const response = await fetch(`${apiUrl}/api/campaigns/address/${address}`);
               const mongoData = await response.json() || {};
 
